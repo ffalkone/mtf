@@ -156,7 +156,9 @@ class CurlTransport implements CurlInterface
      */
     public function read()
     {
-        $response = curl_exec($this->getResource());
+	    $response = curl_exec($this->getResource());
+        print_r(debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 5));
+
         if ($response === false) {
             throw new \Exception(curl_error($this->getResource()));
         }
